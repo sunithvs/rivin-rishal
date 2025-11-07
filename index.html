@@ -159,7 +159,28 @@
     <link rel="modulepreload" fetchpriority="low" href="https://framerusercontent.com/sites/7j8rWwQwvZbeI2wjrDW5s9/react.CMdCltHX.mjs"><link rel="modulepreload" fetchpriority="low" href="https://framerusercontent.com/sites/7j8rWwQwvZbeI2wjrDW5s9/rolldown-runtime.Ca1KTpMg.mjs"><link rel="modulepreload" fetchpriority="low" href="https://framerusercontent.com/sites/7j8rWwQwvZbeI2wjrDW5s9/motion.joPpsX7v.mjs"><link rel="modulepreload" fetchpriority="low" href="https://framerusercontent.com/sites/7j8rWwQwvZbeI2wjrDW5s9/framer.xxQYYQCa.mjs"><link rel="modulepreload" fetchpriority="low" href="https://framerusercontent.com/sites/7j8rWwQwvZbeI2wjrDW5s9/shared-lib.9P1b5Tp3.mjs"><link rel="modulepreload" fetchpriority="low" href="https://framerusercontent.com/sites/7j8rWwQwvZbeI2wjrDW5s9/Phosphor.BYyg4prH.mjs"><link rel="modulepreload" fetchpriority="low" href="https://framerusercontent.com/sites/7j8rWwQwvZbeI2wjrDW5s9/JLWig38Pv.C3CQg-Eb.mjs"><link rel="modulepreload" fetchpriority="low" href="https://framerusercontent.com/sites/7j8rWwQwvZbeI2wjrDW5s9/l1lRiQK3K.CvHch1N0.mjs"><link rel="modulepreload" fetchpriority="low" href="https://framerusercontent.com/sites/7j8rWwQwvZbeI2wjrDW5s9/EBQDvGnCv.B6gzv6wO.mjs"><link rel="modulepreload" fetchpriority="low" href="https://framerusercontent.com/sites/7j8rWwQwvZbeI2wjrDW5s9/eHqjcJf7jvcK2sp39J5Zblbifq4gO4vh-8cy7ncPZ6k.CGohQ_jY.mjs"><link rel="modulepreload" fetchpriority="low" href="https://framerusercontent.com/sites/7j8rWwQwvZbeI2wjrDW5s9/NxCe_AOfF.CvVjWVL0.mjs"><link rel="modulepreload" fetchpriority="low" href="https://framerusercontent.com/sites/7j8rWwQwvZbeI2wjrDW5s9/ZMWq6ryX_.B4pYGZcr.mjs"><link rel="modulepreload" fetchpriority="low" href="https://framerusercontent.com/sites/7j8rWwQwvZbeI2wjrDW5s9/ilUlJnLkH.aJgkavYw.mjs"><link rel="modulepreload" fetchpriority="low" href="https://framerusercontent.com/sites/7j8rWwQwvZbeI2wjrDW5s9/augiA20Il.l_WPbS8T.mjs"><link rel="modulepreload" fetchpriority="low" href="https://framerusercontent.com/sites/7j8rWwQwvZbeI2wjrDW5s9/djOUw0pzb.BHtiPbQR.mjs"><link rel="modulepreload" fetchpriority="low" href="https://framerusercontent.com/sites/7j8rWwQwvZbeI2wjrDW5s9/ilUlJnLkH.CMrjAQwf.mjs"><link rel="modulepreload" fetchpriority="low" href="https://framerusercontent.com/sites/7j8rWwQwvZbeI2wjrDW5s9/TTqvVnbYq.nW2LDTw1.mjs"><link rel="modulepreload" fetchpriority="low" href="https://framerusercontent.com/sites/7j8rWwQwvZbeI2wjrDW5s9/script_main.BiMqt7SC.mjs"><script type="module" async data-framer-bundle="main" fetchpriority="low" src="https://framerusercontent.com/sites/7j8rWwQwvZbeI2wjrDW5s9/script_main.BiMqt7SC.mjs"></script><div id="svg-templates" style="position: absolute; overflow: hidden; bottom: 0; left: 0; width: 0; height: 0; z-index: 0; contain: strict" aria-hidden="true">
 </div>
     <!-- Start of bodyEnd -->
-    
+    <audio id="bgm-audio" loop>
+        <source src="bgm.mp3" type="audio/mpeg">
+    </audio>
+    <script>
+        // Auto-play background music
+        const audio = document.getElementById('bgm-audio');
+        audio.volume = 0.3; // Set volume to 30% for better UX
+        
+        // Try to play immediately
+        const playPromise = audio.play();
+        
+        if (playPromise !== undefined) {
+            playPromise.catch(error => {
+                // Auto-play was prevented, play on first user interaction
+                console.log('Autoplay prevented, waiting for user interaction');
+                document.addEventListener('click', function playOnInteraction() {
+                    audio.play();
+                    document.removeEventListener('click', playOnInteraction);
+                }, { once: true });
+            });
+        }
+    </script>
     <!-- End of bodyEnd -->
 </body>
 </html>
