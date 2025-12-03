@@ -22,6 +22,7 @@
             --truck-green: #4C9F38;
             --truck-orange: #FF6B00;
             --truck-pink: #FF007F;
+            --truck-white: #FFFFFF;
             --border-width: 15px;
         }
 
@@ -163,6 +164,41 @@
             transition: transform 0.3s;
         }
         .subtitle:hover { transform: rotate(2deg) scale(1.1); }
+
+        /* --- USER PHOTO (Desi Frame) --- */
+        .user-photo-container {
+            display: inline-block;
+            position: relative;
+            margin: 0 auto 20px auto;
+            /* Scaled Down Size */
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            
+            /* Decorative "Desi" Frame Layers */
+            background-color: var(--truck-yellow);
+            border: 4px solid var(--truck-red);
+            box-shadow: 
+                0 0 0 5px var(--truck-white),   /* Inner white ring */
+                0 0 0 10px var(--truck-green),  /* Outer green ring */
+                0 15px 20px rgba(0,0,0,0.2);    /* Drop shadow */
+                
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            z-index: 5;
+        }
+        
+        .user-photo-container:hover {
+            transform: scale(1.1) rotate(3deg);
+        }
+
+        .user-photo {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            border: 3px solid #fff; /* White border touching the image */
+            object-fit: cover;
+            display: block;
+        }
 
         /* --- MARQUEE --- */
         .horn-ok-please {
@@ -608,6 +644,18 @@
             <div class="hero-badge">
                 <div class="crown-icon">🎨 ✨ 🖌️</div>
                 
+                <!-- User Photo with Desi Border -->
+                <div class="user-photo-container">
+                    <!-- 
+                        Using your official Framer website image to ensure it loads perfectly on deployment.
+                        If you want to use a different file, just replace this URL.
+                    -->
+                    <img src="https://framerusercontent.com/images/49S0MIx6JeI7ONiFLoT9vEDMJk.png" 
+                         alt="Rivin Rishal" 
+                         class="user-photo"
+                         onerror="this.src='https://ui-avatars.com/api/?name=Rivin+Rishal&background=FFD700&color=D92525&size=256&rounded=true&bold=true&length=2'">
+                </div>
+                
                 <h1>RIVIN<br>RISHAL</h1>
                 
                 <div class="subtitle">DIGITAL DESIGNER & STRATEGIST</div>
@@ -627,8 +675,9 @@
         <div class="content-area">
             
             <!-- ABOUT -->
-            <section id="about">
+            <section id="about" style="text-align: center;">
                 <h2>ABOUT ME<br><span style="font-size: 1rem; font-family: sans-serif; color: #666; font-weight: normal;">(The Creator)</span></h2>
+                
                 <div class="about-text">
                     <p>What began as a hobby creating digital posters on mobile apps evolved into a six-year design journey. Today, with expertise in AI tools and six design platforms, I am a visual storyteller. I craft experiences and strategies that connect deeply and spark creativity, specializing in both visual design and marketing.</p>
                 </div>
