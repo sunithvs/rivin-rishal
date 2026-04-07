@@ -14,7 +14,7 @@
         }
         .fade-in {
             opacity: 0;
-            transform: translateY(10px);
+            transform: translateY(20px);
             transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
         }
         .fade-in.visible {
@@ -25,19 +25,23 @@
             background: black;
             color: white;
         }
-        /* Custom sunflower animation */
-        .sunflower-container:hover {
-            transform: translateY(-2px);
+        /* Custom hover state for the hero image */
+        .hero-image-container {
+            transition: all 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .hero-image-container:hover {
+            filter: grayscale(0%);
+            transform: scale(1.02) rotate(1deg);
         }
     </style>
 </head>
 <body class="bg-white text-black antialiased selection-black">
 
-    <!-- Header -->
+    <!-- Header / Navigation -->
     <nav class="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-md border-b border-zinc-50">
         <div class="max-w-4xl mx-auto px-6 h-20 flex items-center justify-between">
-            <div class="sunflower-container transition-transform duration-300 pt-2 cursor-pointer">
-                <!-- Sunflower SVG -->
+            <div class="transition-transform duration-300 pt-2 cursor-pointer hover:-translate-y-0.5">
+                <!-- Yellow Sunflower SVG -->
                 <svg viewBox="0 0 100 100" class="w-10 h-10" xmlns="http://www.w3.org/2000/svg">
                     <rect x="47" y="55" width="6" height="45" fill="#88A437" />
                     <path d="M47 75 Q30 80 40 90 Q47 85 47 75" fill="#88A437" />
@@ -76,7 +80,7 @@
     </nav>
 
     <main class="max-w-4xl mx-auto px-6 pt-36 md:pt-48 pb-32">
-        <!-- Hero -->
+        <!-- Hero Section -->
         <section class="fade-in mb-28 md:mb-40">
             <div class="mb-14">
                 <h1 class="text-4xl md:text-7xl font-bold tracking-tighter leading-tight">
@@ -87,30 +91,42 @@
                 </p>
             </div>
             
-            <div class="max-w-3xl">
-                <div class="text-[10px] font-bold tracking-[0.4em] uppercase text-zinc-300 mb-8">
-                    Story. Design. Growth.
+            <div class="flex flex-col md:flex-row gap-12 items-start">
+                <div class="flex-1">
+                    <div class="text-[10px] font-bold tracking-[0.4em] uppercase text-zinc-300 mb-8">
+                        Story. Design. Growth.
+                    </div>
+                    <p class="text-zinc-500 leading-relaxed text-lg md:text-xl">
+                        What started as a hobby creating digital posters on mobile apps has grown into a seven-year design journey. Today, I am a Graphic Design Lead specializing in branding, performance creatives, and lead generation, currently leading visual growth at Eduport Pvt Ltd. With experience in AI tools, I create designs and strategies that connect with people and drive results, bridging the gap between creative storytelling and business growth.
+                    </p>
+                    <div class="mt-10 sm:hidden">
+                        <a 
+                            href="https://drive.google.com/uc?export=download&id=19kJ9JRNNAH8-cHX3DX1XjJmPYTKlr9yf" 
+                            target="_blank"
+                            class="inline-flex items-center gap-2 text-[10px] font-bold tracking-[0.15em] uppercase border border-black text-black px-8 py-3 rounded-full hover:bg-black hover:text-white transition-all duration-300"
+                        >
+                            <i data-lucide="download" class="w-4 h-4"></i> Download CV
+                        </a>
+                    </div>
                 </div>
-                <p class="text-zinc-500 leading-relaxed text-lg md:text-xl">
-                    What started as a hobby creating digital posters on mobile apps has grown into a seven-year design journey. Today, I am a Graphic Design Lead specializing in branding, performance creatives, and lead generation, currently leading visual growth at Eduport Pvt Ltd. With experience in AI tools, I create designs and strategies that connect with people and drive results, bridging the gap between creative storytelling and business growth.
-                </p>
-                <div class="mt-10 sm:hidden">
-                    <a 
-                        href="https://drive.google.com/uc?export=download&id=19kJ9JRNNAH8-cHX3DX1XjJmPYTKlr9yf" 
-                        target="_blank"
-                        class="inline-flex items-center gap-2 text-[10px] font-bold tracking-[0.15em] uppercase border border-black text-black px-8 py-3 rounded-full hover:bg-black hover:text-white transition-all duration-300"
-                    >
-                        <i data-lucide="download" class="w-4 h-4"></i> Download CV
-                    </a>
+                <div class="w-full md:w-64 shrink-0">
+                    <div class="hero-image-container aspect-[4/5] bg-zinc-100 overflow-hidden grayscale rounded-sm border border-zinc-100 cursor-crosshair shadow-sm hover:shadow-2xl">
+                        <img 
+                            src="https://lh3.googleusercontent.com/d/1t207E9ochtGLyPk64bI1GsXxq1GLp10z" 
+                            alt="Rivin Rishal" 
+                            class="w-full h-full object-cover"
+                            onerror="this.onerror=null; this.src='https://via.placeholder.com/800x1000?text=Check+Drive+Permissions';"
+                        />
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- Experience -->
+        <!-- Experience Section -->
         <section class="fade-in mb-28 md:mb-40">
             <h2 class="text-[10px] font-bold tracking-[0.3em] uppercase text-zinc-400 mb-12">Experience</h2>
             <div class="divide-y divide-zinc-100 border-t border-zinc-100">
-                <!-- Item 1 -->
+                <!-- Job 1 -->
                 <div class="py-10 grid md:grid-cols-4 gap-6 items-start group">
                     <span class="text-xs font-mono text-zinc-400">2025 — Present</span>
                     <div class="md:col-span-2">
@@ -121,7 +137,7 @@
                         Eduport Pvt Ltd
                     </span>
                 </div>
-                <!-- Item 2 -->
+                <!-- Job 2 -->
                 <div class="py-10 grid md:grid-cols-4 gap-6 items-start group">
                     <span class="text-xs font-mono text-zinc-400">2024 — 2025</span>
                     <div class="md:col-span-2">
@@ -132,7 +148,7 @@
                         Eduport Pvt Ltd
                     </span>
                 </div>
-                <!-- Item 3 -->
+                <!-- Job 3 -->
                 <div class="py-10 grid md:grid-cols-4 gap-6 items-start group">
                     <span class="text-xs font-mono text-zinc-400">2022 — 2023</span>
                     <div class="md:col-span-2">
@@ -143,7 +159,7 @@
                         Angadi Company
                     </span>
                 </div>
-                <!-- Item 4 -->
+                <!-- Job 4 -->
                 <div class="py-10 grid md:grid-cols-4 gap-6 items-start group">
                     <span class="text-xs font-mono text-zinc-400">2020 — 2022</span>
                     <div class="md:col-span-2">
@@ -201,16 +217,22 @@
             </div>
         </section>
 
-        <!-- Final CTA -->
+        <!-- Contact Section -->
         <section class="fade-in border-t border-black pt-20 flex flex-col md:flex-row justify-between gap-16">
             <h2 class="text-4xl md:text-6xl font-bold tracking-tighter leading-none uppercase max-w-xl">
                 Design that solves, <br />
                 design that inspires
             </h2>
-            <div class="flex flex-wrap gap-10 items-start">
-                <a href="https://in.linkedin.com/in/muhammed-rivin-66073823a" target="_blank" class="text-[11px] font-bold uppercase tracking-[0.2em] border-b border-transparent hover:border-black transition-all pb-1">LinkedIn</a>
-                <a href="https://www.behance.net/rivinrishal_40" target="_blank" class="text-[11px] font-bold uppercase tracking-[0.2em] border-b border-transparent hover:border-black transition-all pb-1">Behance</a>
-                <a href="https://www.instagram.com/rivinrishal/?hl=en" target="_blank" class="text-[11px] font-bold uppercase tracking-[0.2em] border-b border-transparent hover:border-black transition-all pb-1">Instagram</a>
+            <div class="flex flex-col gap-8 items-start">
+                <a href="https://in.linkedin.com/in/muhammed-rivin-66073823a" target="_blank" class="group flex items-center gap-3 text-2xl font-bold uppercase tracking-[0.1em] text-blue-600 transition-all hover:opacity-70">
+                    LinkedIn <i data-lucide="arrow-up-right" class="w-6 h-6 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1"></i>
+                </a>
+                <a href="https://www.behance.net/rivinrishal_40" target="_blank" class="group flex items-center gap-3 text-2xl font-bold uppercase tracking-[0.1em] text-blue-600 transition-all hover:opacity-70">
+                    Behance <i data-lucide="arrow-up-right" class="w-6 h-6 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1"></i>
+                </a>
+                <a href="https://www.instagram.com/rivinrishal/?hl=en" target="_blank" class="group flex items-center gap-3 text-2xl font-bold uppercase tracking-[0.1em] text-blue-600 transition-all hover:opacity-70">
+                    Instagram <i data-lucide="arrow-up-right" class="w-6 h-6 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1"></i>
+                </a>
             </div>
         </section>
     </main>
@@ -223,10 +245,10 @@
         // Initialize Lucide icons
         lucide.createIcons();
 
-        // Set current year
+        // Set current year in footer
         document.getElementById('year').textContent = new Date().getFullYear();
 
-        // Entrance animation logic
+        // Entrance animation logic using Intersection Observer
         const observerOptions = {
             threshold: 0.1
         };
@@ -243,9 +265,10 @@
             observer.observe(el);
         });
 
-        // Instant load for hero section
+        // Trigger the initial fade-in for the hero section immediately
         window.addEventListener('load', () => {
-            document.querySelector('.fade-in').classList.add('visible');
+            const firstSection = document.querySelector('.fade-in');
+            if (firstSection) firstSection.classList.add('visible');
         });
     </script>
 </body>
