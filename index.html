@@ -1,243 +1,252 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { ArrowUpRight, Download, ArrowRight } from 'lucide-react';
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rivin Rishal | Graphic Design Lead</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+        .fade-in {
+            opacity: 0;
+            transform: translateY(10px);
+            transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .selection-black::selection {
+            background: black;
+            color: white;
+        }
+        /* Custom sunflower animation */
+        .sunflower-container:hover {
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body class="bg-white text-black antialiased selection-black">
 
-const App = () => {
-  const userData = {
-    name: "Rivin Rishal",
-    role: "Graphic Design Lead",
-    summary: "What started as a hobby creating digital posters on mobile apps has grown into a seven-year design journey. Today, I am a Graphic Design Lead specializing in branding, performance creatives, and lead generation, currently leading visual growth at Eduport Pvt Ltd. With experience in AI tools, I create designs and strategies that connect with people and drive results, bridging the gap between creative storytelling and business growth.",
-    // Updated skills
-    skills: ["Adobe CC", "Figma", "AI Tools"],
-    experienceList: [
-      {
-        title: "Graphic Design Lead",
-        company: "Eduport Pvt Ltd",
-        period: "2025 — Present",
-        desc: "Directing visual strategy and design systems to drive customer acquisition."
-      },
-      {
-        title: "Senior Visual Designer",
-        company: "Eduport Pvt Ltd",
-        period: "2024 — 2025",
-        desc: "Optimized design workflows for high-impact marketing assets."
-      },
-      {
-        title: "Senior Visual Designer",
-        company: "Angadi Company",
-        period: "2022 — 2023",
-        desc: "Translated stakeholder requirements into high-performing branding visuals."
-      },
-      {
-        title: "Junior Graphic Designer",
-        company: "DOPA Academy LLP",
-        period: "2020 — 2022",
-        desc: "Foundation-level creative execution for large-scale marketing campaigns."
-      }
-    ],
-    education: [
-      { degree: "PG Diploma in UI/UX Design", inst: "Digital Academy 360", year: "2024" },
-      { degree: "Bachelor of Arts in English", inst: "University of Calicut", year: "2022" }
-    ],
-    links: {
-      linkedin: "https://in.linkedin.com/in/muhammed-rivin-66073823a",
-      behance: "https://www.behance.net/rivinrishal_40",
-      instagram: "https://www.instagram.com/rivinrishal/?hl=en",
-      whatsapp: "https://wa.me/919207605709",
-      cv: "https://drive.google.com/uc?export=download&id=19kJ9JRNNAH8-cHX3DX1XjJmPYTKlr9yf"
-    }
-  };
-
-  const SunflowerIcon = () => (
-    <svg 
-      viewBox="0 0 100 100" 
-      className="w-10 h-10" 
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <rect x="47" y="55" width="6" height="45" fill="#88A437" />
-      <path d="M47 75 Q30 80 40 90 Q47 85 47 75" fill="#88A437" />
-      <path d="M53 85 Q70 90 60 100 Q53 95 53 85" fill="#88A437" />
-      <g transform="translate(50, 40)">
-        {[0, 45, 90, 135, 180, 225, 270, 315].map((angle) => (
-          <circle 
-            key={angle}
-            cx="0" 
-            cy="-18" 
-            r="12" 
-            fill="#FFD95A" 
-            transform={`rotate(${angle})`}
-          />
-        ))}
-        <circle cx="0" cy="0" r="14" fill="#C07F00" />
-      </g>
-    </svg>
-  );
-
-  const fade = {
-    initial: { opacity: 0, y: 10 },
-    animate: { opacity: 1, y: 0 },
-    transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] }
-  };
-
-  return (
-    <div className="min-h-screen bg-white text-black font-sans antialiased selection:bg-black selection:text-white overflow-x-hidden">
-      {/* Header */}
-      <nav className="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-sm border-b border-zinc-50">
-        <div className="max-w-4xl mx-auto px-6 h-20 flex items-center justify-between">
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            whileHover={{ y: -2 }}
-            className="flex items-center pt-2"
-          >
-            <SunflowerIcon />
-          </motion.div>
-          
-          <div className="flex items-center gap-4 md:gap-8">
-            <a 
-              href={userData.links.cv} 
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hidden sm:flex items-center gap-2 text-[10px] font-bold tracking-[0.15em] uppercase border border-black/20 text-black px-5 py-2 rounded-full hover:bg-black hover:text-white hover:border-black transition-all duration-300 whitespace-nowrap"
-            >
-              <Download size={14} /> Download CV
-            </a>
-            <a 
-              href={userData.links.whatsapp} 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              className="flex items-center gap-2 text-[10px] font-bold tracking-[0.15em] uppercase border-b border-black pb-0.5 hover:opacity-50 transition-opacity whitespace-nowrap"
-            >
-              CONNECT ME <ArrowRight size={14} />
-            </a>
-          </div>
+    <!-- Header -->
+    <nav class="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-md border-b border-zinc-50">
+        <div class="max-w-4xl mx-auto px-6 h-20 flex items-center justify-between">
+            <div class="sunflower-container transition-transform duration-300 pt-2 cursor-pointer">
+                <!-- Sunflower SVG -->
+                <svg viewBox="0 0 100 100" class="w-10 h-10" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="47" y="55" width="6" height="45" fill="#88A437" />
+                    <path d="M47 75 Q30 80 40 90 Q47 85 47 75" fill="#88A437" />
+                    <path d="M53 85 Q70 90 60 100 Q53 95 53 85" fill="#88A437" />
+                    <g transform="translate(50, 40)">
+                        <circle cx="0" cy="-18" r="12" fill="#FFD95A" />
+                        <circle cx="0" cy="-18" r="12" fill="#FFD95A" transform="rotate(45)" />
+                        <circle cx="0" cy="-18" r="12" fill="#FFD95A" transform="rotate(90)" />
+                        <circle cx="0" cy="-18" r="12" fill="#FFD95A" transform="rotate(135)" />
+                        <circle cx="0" cy="-18" r="12" fill="#FFD95A" transform="rotate(180)" />
+                        <circle cx="0" cy="-18" r="12" fill="#FFD95A" transform="rotate(225)" />
+                        <circle cx="0" cy="-18" r="12" fill="#FFD95A" transform="rotate(270)" />
+                        <circle cx="0" cy="-18" r="12" fill="#FFD95A" transform="rotate(315)" />
+                        <circle cx="0" cy="0" r="14" fill="#C07F00" />
+                    </g>
+                </svg>
+            </div>
+            
+            <div class="flex items-center gap-4 md:gap-8">
+                <a 
+                    href="https://drive.google.com/uc?export=download&id=19kJ9JRNNAH8-cHX3DX1XjJmPYTKlr9yf" 
+                    target="_blank"
+                    class="hidden sm:flex items-center gap-2 text-[10px] font-bold tracking-[0.15em] uppercase border border-black/20 text-black px-5 py-2 rounded-full hover:bg-black hover:text-white hover:border-black transition-all duration-300 whitespace-nowrap"
+                >
+                    <i data-lucide="download" class="w-3.5 h-3.5"></i> Download CV
+                </a>
+                <a 
+                    href="https://wa.me/919207605709" 
+                    target="_blank" 
+                    class="flex items-center gap-2 text-[10px] font-bold tracking-[0.15em] uppercase border-b border-black pb-0.5 hover:opacity-50 transition-opacity whitespace-nowrap"
+                >
+                    CONNECT ME <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </a>
+            </div>
         </div>
-      </nav>
+    </nav>
 
-      <main className="max-w-4xl mx-auto px-6 pt-36 md:pt-48 pb-32">
-        {/* Hero */}
-        <motion.section {...fade} className="mb-28 md:mb-40">
-          <div className="mb-14">
-            <h1 className="text-4xl md:text-7xl font-bold tracking-tighter leading-tight">
-              {userData.name}
-            </h1>
-            <p className="text-[11px] font-bold tracking-[0.25em] uppercase text-zinc-400 opacity-80 mt-4">
-              {userData.role}
-            </p>
-          </div>
-          
-          <div className="max-w-3xl">
-            <div className="text-[10px] font-bold tracking-[0.4em] uppercase text-zinc-300 mb-8">
-              Story. Design. Growth.
+    <main class="max-w-4xl mx-auto px-6 pt-36 md:pt-48 pb-32">
+        <!-- Hero -->
+        <section class="fade-in mb-28 md:mb-40">
+            <div class="mb-14">
+                <h1 class="text-4xl md:text-7xl font-bold tracking-tighter leading-tight">
+                    Rivin Rishal
+                </h1>
+                <p class="text-[11px] font-bold tracking-[0.25em] uppercase text-zinc-400 opacity-80 mt-4">
+                    Graphic Design Lead
+                </p>
             </div>
-            <p className="text-zinc-500 leading-relaxed text-lg md:text-xl leading-relaxed">
-              {userData.summary}
-            </p>
-            <div className="mt-10 sm:hidden">
-              <a 
-                href={userData.links.cv} 
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-[10px] font-bold tracking-[0.15em] uppercase border border-black text-black px-8 py-3 rounded-full hover:bg-black hover:text-white transition-all duration-300"
-              >
-                <Download size={16} /> Download CV
-              </a>
-            </div>
-          </div>
-        </motion.section>
-
-        {/* Experience */}
-        <section className="mb-28 md:mb-40">
-          <h2 className="text-[10px] font-bold tracking-[0.3em] uppercase text-zinc-400 mb-12">Experience</h2>
-          <div className="divide-y divide-zinc-100 border-t border-zinc-100">
-            {userData.experienceList.map((job, i) => (
-              <div key={i} className="py-10 grid md:grid-cols-4 gap-6 items-start group">
-                <span className="text-xs font-mono text-zinc-400">{job.period}</span>
-                <div className="md:col-span-2">
-                  <h3 className="font-bold text-xl mb-2 group-hover:translate-x-1 transition-transform duration-300">{job.title}</h3>
-                  <p className="text-zinc-500 text-sm leading-relaxed">{job.desc}</p>
+            
+            <div class="max-w-3xl">
+                <div class="text-[10px] font-bold tracking-[0.4em] uppercase text-zinc-300 mb-8">
+                    Story. Design. Growth.
                 </div>
-                <span className="md:text-right text-[11px] font-bold uppercase tracking-widest text-zinc-300 group-hover:text-black transition-colors">
-                  {job.company}
-                </span>
-              </div>
-            ))}
-          </div>
+                <p class="text-zinc-500 leading-relaxed text-lg md:text-xl">
+                    What started as a hobby creating digital posters on mobile apps has grown into a seven-year design journey. Today, I am a Graphic Design Lead specializing in branding, performance creatives, and lead generation, currently leading visual growth at Eduport Pvt Ltd. With experience in AI tools, I create designs and strategies that connect with people and drive results, bridging the gap between creative storytelling and business growth.
+                </p>
+                <div class="mt-10 sm:hidden">
+                    <a 
+                        href="https://drive.google.com/uc?export=download&id=19kJ9JRNNAH8-cHX3DX1XjJmPYTKlr9yf" 
+                        target="_blank"
+                        class="inline-flex items-center gap-2 text-[10px] font-bold tracking-[0.15em] uppercase border border-black text-black px-8 py-3 rounded-full hover:bg-black hover:text-white transition-all duration-300"
+                    >
+                        <i data-lucide="download" class="w-4 h-4"></i> Download CV
+                    </a>
+                </div>
+            </div>
         </section>
 
-        {/* Works Section */}
-        <section className="mb-28 md:mb-40">
-          <h2 className="text-[10px] font-bold tracking-[0.3em] uppercase text-zinc-400 mb-10">Works</h2>
-          <motion.a 
-            href={userData.links.behance}
-            target="_blank"
-            rel="noopener noreferrer"
-            whileHover={{ scale: 1.005 }}
-            className="flex items-center justify-between py-16 border-y border-zinc-100 px-8 group hover:bg-black transition-all duration-500 rounded-xl"
-          >
+        <!-- Experience -->
+        <section class="fade-in mb-28 md:mb-40">
+            <h2 class="text-[10px] font-bold tracking-[0.3em] uppercase text-zinc-400 mb-12">Experience</h2>
+            <div class="divide-y divide-zinc-100 border-t border-zinc-100">
+                <!-- Item 1 -->
+                <div class="py-10 grid md:grid-cols-4 gap-6 items-start group">
+                    <span class="text-xs font-mono text-zinc-400">2025 — Present</span>
+                    <div class="md:col-span-2">
+                        <h3 class="font-bold text-xl mb-2 group-hover:translate-x-1 transition-transform duration-300">Graphic Design Lead</h3>
+                        <p class="text-zinc-500 text-sm leading-relaxed">Directing visual strategy and design systems to drive customer acquisition.</p>
+                    </div>
+                    <span class="md:text-right text-[11px] font-bold uppercase tracking-widest text-zinc-300 group-hover:text-black transition-colors">
+                        Eduport Pvt Ltd
+                    </span>
+                </div>
+                <!-- Item 2 -->
+                <div class="py-10 grid md:grid-cols-4 gap-6 items-start group">
+                    <span class="text-xs font-mono text-zinc-400">2024 — 2025</span>
+                    <div class="md:col-span-2">
+                        <h3 class="font-bold text-xl mb-2 group-hover:translate-x-1 transition-transform duration-300">Senior Visual Designer</h3>
+                        <p class="text-zinc-500 text-sm leading-relaxed">Optimized design workflows for high-impact marketing assets.</p>
+                    </div>
+                    <span class="md:text-right text-[11px] font-bold uppercase tracking-widest text-zinc-300 group-hover:text-black transition-colors">
+                        Eduport Pvt Ltd
+                    </span>
+                </div>
+                <!-- Item 3 -->
+                <div class="py-10 grid md:grid-cols-4 gap-6 items-start group">
+                    <span class="text-xs font-mono text-zinc-400">2022 — 2023</span>
+                    <div class="md:col-span-2">
+                        <h3 class="font-bold text-xl mb-2 group-hover:translate-x-1 transition-transform duration-300">Senior Visual Designer</h3>
+                        <p class="text-zinc-500 text-sm leading-relaxed">Translated stakeholder requirements into high-performing branding visuals.</p>
+                    </div>
+                    <span class="md:text-right text-[11px] font-bold uppercase tracking-widest text-zinc-300 group-hover:text-black transition-colors">
+                        Angadi Company
+                    </span>
+                </div>
+                <!-- Item 4 -->
+                <div class="py-10 grid md:grid-cols-4 gap-6 items-start group">
+                    <span class="text-xs font-mono text-zinc-400">2020 — 2022</span>
+                    <div class="md:col-span-2">
+                        <h3 class="font-bold text-xl mb-2 group-hover:translate-x-1 transition-transform duration-300">Junior Graphic Designer</h3>
+                        <p class="text-zinc-500 text-sm leading-relaxed">Foundation-level creative execution for large-scale marketing campaigns.</p>
+                    </div>
+                    <span class="md:text-right text-[11px] font-bold uppercase tracking-widest text-zinc-300 group-hover:text-black transition-colors">
+                        DOPA Academy LLP
+                    </span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Works Section -->
+        <section class="fade-in mb-28 md:mb-40">
+            <h2 class="text-[10px] font-bold tracking-[0.3em] uppercase text-zinc-400 mb-10">Works</h2>
+            <a 
+                href="https://www.behance.net/rivinrishal_40"
+                target="_blank"
+                class="flex items-center justify-between py-16 border-y border-zinc-100 px-8 group hover:bg-black transition-all duration-500 rounded-xl"
+            >
+                <div>
+                    <h3 class="text-4xl md:text-7xl font-bold tracking-tighter group-hover:text-white transition-all duration-500 group-hover:translate-x-4">
+                        View Portfolio
+                    </h3>
+                </div>
+                <div class="flex items-center justify-center transition-all duration-500 group-hover:rotate-45 group-hover:-translate-x-4">
+                    <i data-lucide="arrow-up-right" class="w-10 h-10 md:w-12 md:h-12 text-zinc-200 group-hover:text-white transition-colors"></i>
+                </div>
+            </a>
+        </section>
+
+        <!-- Expertise & Background -->
+        <section class="fade-in grid md:grid-cols-2 gap-20 mb-28 md:mb-40">
             <div>
-              <h3 className="text-4xl md:text-7xl font-bold tracking-tighter group-hover:text-white transition-all duration-500 group-hover:translate-x-4">
-                View Portfolio
-              </h3>
-            </div>
-            <div className="flex items-center justify-center transition-all duration-500 group-hover:rotate-45 group-hover:translate-x-[-16px]">
-              <ArrowUpRight size={48} className="text-zinc-200 group-hover:text-white transition-colors" />
-            </div>
-          </motion.a>
-        </section>
-
-        {/* Expertise & Background */}
-        <section className="grid md:grid-cols-2 gap-20 mb-28 md:mb-40">
-          <div>
-            <h2 className="text-[10px] font-bold tracking-[0.3em] uppercase text-zinc-400 mb-10">Expertise</h2>
-            <div className="flex flex-wrap gap-x-10 gap-y-6">
-              {userData.skills.map((skill, i) => (
-                <span key={i} className="text-2xl font-bold tracking-tight hover:opacity-50 transition-opacity cursor-default">
-                  {skill}
-                </span>
-              ))}
-            </div>
-          </div>
-          <div>
-            <h2 className="text-[10px] font-bold tracking-[0.3em] uppercase text-zinc-400 mb-10">Education</h2>
-            <div className="space-y-10">
-              {userData.education.map((edu, i) => (
-                <div key={i}>
-                  <h4 className="font-bold text-lg">{edu.degree}</h4>
-                  <p className="text-zinc-500 mt-2">{edu.inst} · {edu.year}</p>
+                <h2 class="text-[10px] font-bold tracking-[0.3em] uppercase text-zinc-400 mb-10">Expertise</h2>
+                <div class="flex flex-wrap gap-x-10 gap-y-6">
+                    <span class="text-2xl font-bold tracking-tight hover:opacity-50 transition-opacity cursor-default">Adobe CC</span>
+                    <span class="text-2xl font-bold tracking-tight hover:opacity-50 transition-opacity cursor-default">Figma</span>
+                    <span class="text-2xl font-bold tracking-tight hover:opacity-50 transition-opacity cursor-default">AI Tools</span>
                 </div>
-              ))}
             </div>
-          </div>
+            <div>
+                <h2 class="text-[10px] font-bold tracking-[0.3em] uppercase text-zinc-400 mb-10">Education</h2>
+                <div class="space-y-10">
+                    <div>
+                        <h4 class="font-bold text-lg">PG Diploma in UI/UX Design</h4>
+                        <p class="text-zinc-500 mt-2">Digital Academy 360 · 2024</p>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-lg">Bachelor of Arts in English</h4>
+                        <p class="text-zinc-500 mt-2">University of Calicut · 2022</p>
+                    </div>
+                </div>
+            </div>
         </section>
 
-        {/* Final CTA */}
-        <section className="border-t border-black pt-20 flex flex-col md:flex-row justify-between gap-16">
-          <h2 className="text-4xl md:text-6xl font-bold tracking-tighter leading-none uppercase max-w-xl">
-            Design that solves, <br />
-            design that inspires
-          </h2>
-          <div className="flex flex-wrap gap-10 items-start">
-            {['LinkedIn', 'Behance', 'Instagram'].map((social) => (
-              <a 
-                key={social}
-                href={userData.links[social.toLowerCase()]}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-[11px] font-bold uppercase tracking-[0.2em] border-b border-transparent hover:border-black transition-all pb-1"
-              >
-                {social}
-              </a>
-            ))}
-          </div>
+        <!-- Final CTA -->
+        <section class="fade-in border-t border-black pt-20 flex flex-col md:flex-row justify-between gap-16">
+            <h2 class="text-4xl md:text-6xl font-bold tracking-tighter leading-none uppercase max-w-xl">
+                Design that solves, <br />
+                design that inspires
+            </h2>
+            <div class="flex flex-wrap gap-10 items-start">
+                <a href="https://in.linkedin.com/in/muhammed-rivin-66073823a" target="_blank" class="text-[11px] font-bold uppercase tracking-[0.2em] border-b border-transparent hover:border-black transition-all pb-1">LinkedIn</a>
+                <a href="https://www.behance.net/rivinrishal_40" target="_blank" class="text-[11px] font-bold uppercase tracking-[0.2em] border-b border-transparent hover:border-black transition-all pb-1">Behance</a>
+                <a href="https://www.instagram.com/rivinrishal/?hl=en" target="_blank" class="text-[11px] font-bold uppercase tracking-[0.2em] border-b border-transparent hover:border-black transition-all pb-1">Instagram</a>
+            </div>
         </section>
-      </main>
+    </main>
 
-      <footer className="max-w-4xl mx-auto px-6 pb-24 text-[10px] font-bold tracking-[0.3em] uppercase text-zinc-300">
-        © {new Date().getFullYear()} {userData.name}
-      </footer>
-    </div>
-  );
-};
+    <footer class="max-w-4xl mx-auto px-6 pb-24 text-[10px] font-bold tracking-[0.3em] uppercase text-zinc-300">
+        © <span id="year"></span> Rivin Rishal
+    </footer>
 
-export default App;
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Set current year
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Entrance animation logic
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Instant load for hero section
+        window.addEventListener('load', () => {
+            document.querySelector('.fade-in').classList.add('visible');
+        });
+    </script>
+</body>
+</html>
