@@ -4,14 +4,10 @@ import { ArrowUpRight, Download, ArrowRight } from 'lucide-react';
 
 const App = () => {
   const userData = {
-    name: "Muhammed Rivin",
-    role: "Digital Designer",
+    name: "Rivin Rishal",
+    role: "Graphic Design Lead",
     summary: "What started as a hobby creating digital posters on mobile apps has grown into a seven-year design journey. Today, I am a Graphic Design Lead specializing in branding, performance creatives, and lead generation, currently leading visual growth at Eduport Pvt Ltd. With experience in AI tools, I create designs and strategies that connect with people and drive results, bridging the gap between creative storytelling and business growth.",
-    skills: [
-      "Figma", 
-      "Adobe CC", 
-      "AI Tools"
-    ],
+    skills: ["Figma", "Adobe CC", "Motion Design", "AI Strategy", "UI/UX", "Brand Systems"],
     experienceList: [
       {
         title: "Graphic Design Lead",
@@ -47,28 +43,22 @@ const App = () => {
       behance: "https://www.behance.net/rivinrishal_40",
       instagram: "https://www.instagram.com/rivinrishal/?hl=en",
       whatsapp: "https://wa.me/919207605709",
-      photo: "https://drive.google.com/uc?export=view&id=1t207E9ochtGLyPk64bI1GsXxq1GLp10z",
-      // Direct download link for Google Drive PDF
+      // Direct download link for CV
       cv: "https://drive.google.com/uc?export=download&id=19kJ9JRNNAH8-cHX3DX1XjJmPYTKlr9yf"
     }
   };
 
+  // Custom Sunflower SVG
   const SunflowerIcon = () => (
     <svg 
       viewBox="0 0 100 100" 
       className="w-10 h-10" 
       xmlns="http://www.w3.org/2000/svg"
     >
-      {/* Stem */}
-      <rect x="47" y="50" width="6" height="50" fill="#88A437" />
-      
-      {/* Leaves */}
-      <path d="M47 70 Q30 75 40 85 Q47 80 47 70" fill="#88A437" />
-      <path d="M53 80 Q70 85 60 95 Q53 90 53 80" fill="#88A437" />
-
-      {/* Flower Head */}
-      <g transform="translate(50, 45)">
-        {/* Petals */}
+      <rect x="47" y="55" width="6" height="45" fill="#88A437" />
+      <path d="M47 75 Q30 80 40 90 Q47 85 47 75" fill="#88A437" />
+      <path d="M53 85 Q70 90 60 100 Q53 95 53 85" fill="#88A437" />
+      <g transform="translate(50, 40)">
         {[0, 45, 90, 135, 180, 225, 270, 315].map((angle) => (
           <circle 
             key={angle}
@@ -79,7 +69,6 @@ const App = () => {
             transform={`rotate(${angle})`}
           />
         ))}
-        {/* Center */}
         <circle cx="0" cy="0" r="14" fill="#C07F00" />
       </g>
     </svg>
@@ -92,7 +81,7 @@ const App = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white text-black font-sans antialiased selection:bg-black selection:text-white">
+    <div className="min-h-screen bg-white text-black font-sans antialiased selection:bg-black selection:text-white overflow-x-hidden">
       {/* Header */}
       <nav className="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-sm border-b border-zinc-50">
         <div className="max-w-4xl mx-auto px-6 h-20 flex items-center justify-between">
@@ -100,94 +89,76 @@ const App = () => {
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             whileHover={{ y: -2 }}
-            className="flex items-center gap-2 cursor-pointer pt-4"
+            className="flex items-center pt-2"
           >
             <SunflowerIcon />
           </motion.div>
           
-          <div className="flex items-center gap-4 md:gap-6">
+          <div className="flex items-center gap-4 md:gap-8">
             <a 
               href={userData.links.cv} 
               target="_blank"
               rel="noopener noreferrer"
-              className="hidden sm:flex items-center gap-2 text-[10px] font-bold tracking-[0.2em] uppercase border border-black text-black px-4 py-2 rounded-full hover:bg-black hover:text-white transition-all duration-300 whitespace-nowrap"
+              className="hidden sm:flex items-center gap-2 text-[10px] font-bold tracking-[0.15em] uppercase border border-black/20 text-black px-5 py-2 rounded-full hover:bg-black hover:text-white hover:border-black transition-all duration-300 whitespace-nowrap"
             >
-              <Download size={12} /> Download CV
+              <Download size={14} /> Download CV
             </a>
             <a 
               href={userData.links.whatsapp} 
               target="_blank" 
               rel="noopener noreferrer" 
-              className="flex items-center gap-2 text-[10px] font-bold tracking-[0.2em] uppercase border-b border-black pb-0.5 hover:opacity-50 transition-opacity whitespace-nowrap"
+              className="flex items-center gap-2 text-[10px] font-bold tracking-[0.15em] uppercase border-b border-black pb-0.5 hover:opacity-50 transition-opacity whitespace-nowrap"
             >
-              CONNECT ME <ArrowRight size={12} />
+              CONNECT ME <ArrowRight size={14} />
             </a>
           </div>
         </div>
       </nav>
 
-      <main className="max-w-4xl mx-auto px-6 pt-32 md:pt-40 pb-32">
+      <main className="max-w-4xl mx-auto px-6 pt-36 md:pt-48 pb-32">
         {/* Hero */}
-        <motion.section {...fade} className="mb-24 md:mb-32">
-          {/* Refined Name Section */}
-          <div className="mb-12">
-            <h1 className="text-4xl md:text-6xl font-bold tracking-tighter leading-tight">
+        <motion.section {...fade} className="mb-28 md:mb-40">
+          <div className="mb-14">
+            <h1 className="text-4xl md:text-7xl font-bold tracking-tighter leading-tight">
               {userData.name}
             </h1>
-            <p className="text-[10px] font-bold tracking-[0.3em] uppercase text-zinc-400 opacity-60 mt-2">
+            <p className="text-[11px] font-bold tracking-[0.25em] uppercase text-zinc-400 opacity-80 mt-4">
               {userData.role}
             </p>
           </div>
           
-          <div className="flex flex-col md:flex-row gap-12 items-start">
-            <div className="flex-1">
-              <div className="text-[10px] font-bold tracking-[0.3em] uppercase text-zinc-300 mb-6">
-                Story. Design. Growth.
-              </div>
-              <p className="text-zinc-500 leading-relaxed text-lg max-w-xl">
-                {userData.summary}
-              </p>
-              <div className="mt-8 sm:hidden">
-                <a 
-                  href={userData.links.cv} 
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-[10px] font-bold tracking-[0.2em] uppercase border border-black text-black px-6 py-3 rounded-full hover:bg-black hover:text-white transition-all duration-300"
-                >
-                  <Download size={14} /> Download CV
-                </a>
-              </div>
+          <div className="max-w-3xl">
+            <div className="text-[10px] font-bold tracking-[0.4em] uppercase text-zinc-300 mb-8">
+              Story. Design. Growth.
             </div>
-            <div className="w-full md:w-64 shrink-0">
-              <motion.div 
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                whileHover={{ scale: 1.05, rotate: 1 }}
-                transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-                className="aspect-[4/5] bg-zinc-100 overflow-hidden grayscale hover:grayscale-0 rounded-sm border border-zinc-100 cursor-crosshair shadow-sm hover:shadow-2xl transition-all duration-500"
+            <p className="text-zinc-500 leading-relaxed text-lg md:text-xl leading-relaxed">
+              {userData.summary}
+            </p>
+            <div className="mt-10 sm:hidden">
+              <a 
+                href={userData.links.cv} 
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-[10px] font-bold tracking-[0.15em] uppercase border border-black text-black px-8 py-3 rounded-full hover:bg-black hover:text-white transition-all duration-300"
               >
-                <img 
-                  src={userData.links.photo} 
-                  alt={userData.name} 
-                  className="w-full h-full object-cover"
-                />
-              </motion.div>
+                <Download size={16} /> Download CV
+              </a>
             </div>
           </div>
         </motion.section>
 
         {/* Experience */}
-        <section className="mb-24 md:mb-32">
-          <h2 className="text-[10px] font-bold tracking-[0.3em] uppercase text-zinc-400 mb-10">Experience</h2>
+        <section className="mb-28 md:mb-40">
+          <h2 className="text-[10px] font-bold tracking-[0.3em] uppercase text-zinc-400 mb-12">Experience</h2>
           <div className="divide-y divide-zinc-100 border-t border-zinc-100">
             {userData.experienceList.map((job, i) => (
-              <div key={i} className="py-8 grid md:grid-cols-4 gap-4 items-start group">
+              <div key={i} className="py-10 grid md:grid-cols-4 gap-6 items-start group">
                 <span className="text-xs font-mono text-zinc-400">{job.period}</span>
                 <div className="md:col-span-2">
-                  <h3 className="font-bold text-lg mb-1">{job.title}</h3>
-                  <p className="text-zinc-500 text-sm">{job.desc}</p>
+                  <h3 className="font-bold text-xl mb-2 group-hover:translate-x-1 transition-transform duration-300">{job.title}</h3>
+                  <p className="text-zinc-500 text-sm leading-relaxed">{job.desc}</p>
                 </div>
-                <span className="md:text-right text-[10px] font-bold uppercase tracking-widest text-zinc-300 group-hover:text-black transition-colors">
+                <span className="md:text-right text-[11px] font-bold uppercase tracking-widest text-zinc-300 group-hover:text-black transition-colors">
                   {job.company}
                 </span>
               </div>
@@ -195,66 +166,66 @@ const App = () => {
           </div>
         </section>
 
-        {/* Works - Simplified & Clean */}
-        <section className="mb-24 md:mb-32">
-          <h2 className="text-[10px] font-bold tracking-[0.3em] uppercase text-zinc-400 mb-8">Works</h2>
+        {/* Works Section */}
+        <section className="mb-28 md:mb-40">
+          <h2 className="text-[10px] font-bold tracking-[0.3em] uppercase text-zinc-400 mb-10">Works</h2>
           <motion.a 
             href={userData.links.behance}
             target="_blank"
             rel="noopener noreferrer"
-            whileHover={{ scale: 1.01 }}
-            className="flex items-center justify-between py-10 border-y border-zinc-100 px-6 group hover:bg-black transition-all duration-500 rounded-lg"
+            whileHover={{ scale: 1.005 }}
+            className="flex items-center justify-between py-16 border-y border-zinc-100 px-8 group hover:bg-black transition-all duration-500 rounded-xl"
           >
             <div>
-              <h3 className="text-3xl md:text-5xl font-bold tracking-tighter group-hover:text-white transition-all duration-500 group-hover:translate-x-2">
+              <h3 className="text-4xl md:text-7xl font-bold tracking-tighter group-hover:text-white transition-all duration-500 group-hover:translate-x-4">
                 View Portfolio
               </h3>
             </div>
-            <div className="flex items-center justify-center transition-all duration-500 group-hover:rotate-45 group-hover:translate-x-[-8px]">
-              <ArrowUpRight size={32} className="text-zinc-300 group-hover:text-white transition-colors" />
+            <div className="flex items-center justify-center transition-all duration-500 group-hover:rotate-45 group-hover:translate-x-[-16px]">
+              <ArrowUpRight size={48} className="text-zinc-200 group-hover:text-white transition-colors" />
             </div>
           </motion.a>
         </section>
 
         {/* Expertise & Background */}
-        <section className="grid md:grid-cols-2 gap-20 mb-24 md:mb-32">
+        <section className="grid md:grid-cols-2 gap-20 mb-28 md:mb-40">
           <div>
-            <h2 className="text-[10px] font-bold tracking-[0.3em] uppercase text-zinc-400 mb-8">Expertise</h2>
-            <div className="flex flex-wrap gap-x-6 gap-y-4">
+            <h2 className="text-[10px] font-bold tracking-[0.3em] uppercase text-zinc-400 mb-10">Expertise</h2>
+            <div className="flex flex-wrap gap-x-10 gap-y-6">
               {userData.skills.map((skill, i) => (
-                <span key={i} className="text-lg font-bold tracking-tight hover:opacity-50 transition-opacity cursor-default">
+                <span key={i} className="text-2xl font-bold tracking-tight hover:opacity-50 transition-opacity cursor-default">
                   {skill}
                 </span>
               ))}
             </div>
           </div>
           <div>
-            <h2 className="text-[10px] font-bold tracking-[0.3em] uppercase text-zinc-400 mb-8">Education</h2>
-            <div className="space-y-6">
+            <h2 className="text-[10px] font-bold tracking-[0.3em] uppercase text-zinc-400 mb-10">Education</h2>
+            <div className="space-y-10">
               {userData.education.map((edu, i) => (
                 <div key={i}>
-                  <h4 className="font-bold text-sm">{edu.degree}</h4>
-                  <p className="text-xs text-zinc-500">{edu.inst} · {edu.year}</p>
+                  <h4 className="font-bold text-lg">{edu.degree}</h4>
+                  <p className="text-zinc-500 mt-2">{edu.inst} · {edu.year}</p>
                 </div>
               ))}
             </div>
           </div>
         </section>
 
-        {/* Contact */}
-        <section className="border-t border-black pt-12 flex flex-col md:flex-row justify-between gap-12">
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tighter leading-none uppercase">
+        {/* Final CTA */}
+        <section className="border-t border-black pt-20 flex flex-col md:flex-row justify-between gap-16">
+          <h2 className="text-4xl md:text-6xl font-bold tracking-tighter leading-none uppercase max-w-xl">
             Design that solves, <br />
             design that inspires
           </h2>
-          <div className="flex flex-wrap gap-8">
+          <div className="flex flex-wrap gap-10 items-start">
             {['LinkedIn', 'Behance', 'Instagram'].map((social) => (
               <a 
                 key={social}
                 href={userData.links[social.toLowerCase()]}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-xs font-bold uppercase tracking-widest hover:opacity-50 transition-opacity"
+                className="text-[11px] font-bold uppercase tracking-[0.2em] border-b border-transparent hover:border-black transition-all pb-1"
               >
                 {social}
               </a>
@@ -263,7 +234,7 @@ const App = () => {
         </section>
       </main>
 
-      <footer className="max-w-4xl mx-auto px-6 pb-20 text-[10px] font-bold tracking-[0.2em] uppercase text-zinc-300">
+      <footer className="max-w-4xl mx-auto px-6 pb-24 text-[10px] font-bold tracking-[0.3em] uppercase text-zinc-300">
         © {new Date().getFullYear()} {userData.name}
       </footer>
     </div>
