@@ -47,7 +47,7 @@ const App = () => {
       behance: "https://www.behance.net/rivinrishal_40",
       instagram: "https://www.instagram.com/rivinrishal/?hl=en",
       whatsapp: "https://wa.me/919207605709",
-      photo: "https://lh3.googleusercontent.com/d/1t207E9ochtGLyPk64bI1GsXxq1GLp10z",
+      photo: "https://drive.google.com/uc?export=view&id=1t207E9ochtGLyPk64bI1GsXxq1GLp10z",
       // Direct download link for Google Drive PDF
       cv: "https://drive.google.com/uc?export=download&id=19kJ9JRNNAH8-cHX3DX1XjJmPYTKlr9yf"
     }
@@ -105,12 +105,12 @@ const App = () => {
             <SunflowerIcon />
           </motion.div>
           
-          <div className="flex items-center gap-6">
+          <div className="flex items-center gap-4 md:gap-6">
             <a 
               href={userData.links.cv} 
               target="_blank"
               rel="noopener noreferrer"
-              className="hidden md:flex items-center gap-2 text-[10px] font-bold tracking-[0.2em] uppercase border border-black text-black px-4 py-2 rounded-full hover:bg-black hover:text-white transition-all duration-300"
+              className="hidden sm:flex items-center gap-2 text-[10px] font-bold tracking-[0.2em] uppercase border border-black text-black px-4 py-2 rounded-full hover:bg-black hover:text-white transition-all duration-300 whitespace-nowrap"
             >
               <Download size={12} /> Download CV
             </a>
@@ -118,7 +118,7 @@ const App = () => {
               href={userData.links.whatsapp} 
               target="_blank" 
               rel="noopener noreferrer" 
-              className="flex items-center gap-2 text-[10px] font-bold tracking-[0.2em] uppercase border-b border-black pb-0.5 hover:opacity-50 transition-opacity"
+              className="flex items-center gap-2 text-[10px] font-bold tracking-[0.2em] uppercase border-b border-black pb-0.5 hover:opacity-50 transition-opacity whitespace-nowrap"
             >
               CONNECT ME <ArrowRight size={12} />
             </a>
@@ -126,27 +126,28 @@ const App = () => {
         </div>
       </nav>
 
-      <main className="max-w-4xl mx-auto px-6 pt-40 pb-32">
+      <main className="max-w-4xl mx-auto px-6 pt-32 md:pt-40 pb-32">
         {/* Hero */}
-        <motion.section {...fade} className="mb-32">
-          <div className="mb-12 text-left">
+        <motion.section {...fade} className="mb-24 md:mb-32">
+          {/* Refined Name Section */}
+          <div className="mb-12">
             <h1 className="text-4xl md:text-6xl font-bold tracking-tighter leading-tight">
               {userData.name}
             </h1>
-            <p className="text-xs font-bold tracking-[0.3em] uppercase text-zinc-400 opacity-60 mt-2">
+            <p className="text-[10px] font-bold tracking-[0.3em] uppercase text-zinc-400 opacity-60 mt-2">
               {userData.role}
             </p>
           </div>
           
           <div className="flex flex-col md:flex-row gap-12 items-start">
             <div className="flex-1">
-              <div className="text-[10px] font-bold tracking-[0.4em] uppercase text-zinc-300 mb-6">
+              <div className="text-[10px] font-bold tracking-[0.3em] uppercase text-zinc-300 mb-6">
                 Story. Design. Growth.
               </div>
               <p className="text-zinc-500 leading-relaxed text-lg max-w-xl">
                 {userData.summary}
               </p>
-              <div className="mt-8 md:hidden">
+              <div className="mt-8 sm:hidden">
                 <a 
                   href={userData.links.cv} 
                   target="_blank"
@@ -176,7 +177,7 @@ const App = () => {
         </motion.section>
 
         {/* Experience */}
-        <section className="mb-32">
+        <section className="mb-24 md:mb-32">
           <h2 className="text-[10px] font-bold tracking-[0.3em] uppercase text-zinc-400 mb-10">Experience</h2>
           <div className="divide-y divide-zinc-100 border-t border-zinc-100">
             {userData.experienceList.map((job, i) => (
@@ -195,7 +196,7 @@ const App = () => {
         </section>
 
         {/* Works - Simplified & Clean */}
-        <section className="mb-32">
+        <section className="mb-24 md:mb-32">
           <h2 className="text-[10px] font-bold tracking-[0.3em] uppercase text-zinc-400 mb-8">Works</h2>
           <motion.a 
             href={userData.links.behance}
@@ -216,7 +217,7 @@ const App = () => {
         </section>
 
         {/* Expertise & Background */}
-        <section className="grid md:grid-cols-2 gap-20 mb-32">
+        <section className="grid md:grid-cols-2 gap-20 mb-24 md:mb-32">
           <div>
             <h2 className="text-[10px] font-bold tracking-[0.3em] uppercase text-zinc-400 mb-8">Expertise</h2>
             <div className="flex flex-wrap gap-x-6 gap-y-4">
@@ -242,7 +243,7 @@ const App = () => {
 
         {/* Contact */}
         <section className="border-t border-black pt-12 flex flex-col md:flex-row justify-between gap-12">
-          <h2 className="text-4xl font-bold tracking-tighter leading-none uppercase">
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tighter leading-none uppercase">
             Design that solves, <br />
             design that inspires
           </h2>
