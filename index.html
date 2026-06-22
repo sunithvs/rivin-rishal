@@ -32,6 +32,16 @@
             filter: grayscale(0%);
             transform: scale(1.02) rotate(1deg);
         }
+        /* Project card animations */
+        .project-card {
+            transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .project-card:hover {
+            transform: translateY(-6px);
+        }
+        .project-card:hover .project-graphic {
+            transform: scale(1.04);
+        }
     </style>
 </head>
 <body class="bg-white text-black antialiased selection-black">
@@ -39,7 +49,7 @@
     <!-- Header / Navigation -->
     <nav class="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-md border-b border-zinc-50">
         <div class="max-w-4xl mx-auto px-6 h-20 flex items-center justify-between">
-            <div class="transition-transform duration-300 pt-2 cursor-pointer hover:-translate-y-0.5">
+            <div class="transition-transform duration-300 pt-2 cursor-pointer hover:-translate-y-0.5" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
                 <svg viewBox="0 0 100 100" class="w-10 h-10" xmlns="http://www.w3.org/2000/svg">
                     <rect x="47" y="55" width="6" height="45" fill="#88A437" />
                     <path d="M47 75 Q30 80 40 90 Q47 85 47 75" fill="#88A437" />
@@ -60,7 +70,7 @@
             
             <div class="flex items-center gap-4 md:gap-8">
                 <a 
-                    href="https://drive.google.com/uc?export=download&id=1phMh-uBv8AmxiNFqpN-Mu2-xV3lnWl4g" 
+                    href="https://drive.google.com/uc?export=download&id=11Wx8A8q6U64Bj458xJjDiClOAnqbSomd" 
                     target="_blank"
                     class="hidden sm:flex items-center gap-2 text-[10px] font-bold tracking-[0.15em] uppercase border border-black/20 text-black px-5 py-2 rounded-full hover:bg-black hover:text-white hover:border-black transition-all duration-300 whitespace-nowrap"
                 >
@@ -78,8 +88,9 @@
     </nav>
 
     <main class="max-w-4xl mx-auto px-6 pt-36 md:pt-48 pb-32">
-        <!-- Hero Section -->
-        <section class="fade-in mb-28 md:mb-40">
+        
+        <!-- Hero Section & Bio -->
+        <section class="fade-in mb-24 md:mb-32">
             <div class="mb-14">
                 <h1 class="text-4xl md:text-7xl font-bold tracking-tighter leading-tight">
                     Muhammed Rivin
@@ -94,11 +105,13 @@
                     <p class="text-zinc-500 leading-relaxed text-lg md:text-xl">
                         Graphic Design Lead with 7+ years of experience in branding, marketing creatives, and design systems. Known for improving visual quality, streamlining design workflows, and supporting campaign performance through impactful creative execution. Currently leading visual strategy at <strong>Eduport</strong>, focusing on scalable design solutions that drive customer engagement and business growth.
                     </p>
-                    <div class="mt-10 sm:hidden">
+                    
+                    <!-- Mobile Resume Button -->
+                    <div class="mt-8 flex flex-wrap items-center gap-4">
                         <a 
-                            href="https://drive.google.com/uc?export=download&id=1phMh-uBv8AmxiNFqpN-Mu2-xV3lnWl4g" 
+                            href="https://drive.google.com/uc?export=download&id=11Wx8A8q6U64Bj458xJjDiClOAnqbSomd" 
                             target="_blank"
-                            class="inline-flex items-center gap-2 text-[10px] font-bold tracking-[0.15em] uppercase border border-black text-black px-8 py-3 rounded-full hover:bg-black hover:text-white transition-all duration-300"
+                            class="inline-flex sm:hidden items-center gap-2 text-[10px] font-bold tracking-[0.15em] uppercase border border-black/20 text-black px-8 py-3.5 rounded-full hover:bg-black hover:text-white hover:border-black transition-all duration-300 whitespace-nowrap"
                         >
                             <i data-lucide="download" class="w-4 h-4"></i> Download Resume
                         </a>
@@ -117,88 +130,238 @@
             </div>
         </section>
 
+        <!-- Works Section -->
+        <section id="works-gallery" class="fade-in mb-28 md:mb-40">
+            <div class="flex items-baseline justify-between mb-12 border-b border-zinc-100 pb-4">
+                <h2 class="text-[10px] font-bold tracking-[0.3em] uppercase text-zinc-400">Selected Behance Works</h2>
+                <a 
+                    href="https://www.behance.net/rivinrishal_40" 
+                    target="_blank" 
+                    class="text-[10px] font-bold tracking-[0.15em] uppercase text-blue-600 hover:text-blue-800 transition-colors flex items-center gap-1"
+                >
+                    Behance Profile <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+                </a>
+            </div>
+
+            <!-- Projects Responsive Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                
+                <!-- Project 1: Dance Club Gov Ayurveda -->
+                <a href="https://www.behance.net/gallery/251515693/Branding-for-Dance-Club-Govt-Ayurveda-College-Kannur" target="_blank" class="project-card group block border border-zinc-100 rounded-2xl overflow-hidden bg-zinc-50/50 hover:bg-white hover:shadow-xl hover:border-transparent transition-all duration-300">
+                    <div class="aspect-[16/10] bg-zinc-100 overflow-hidden relative">
+                        <img 
+                            src="https://lh3.googleusercontent.com/d/1-kPMq89FxxXwVESu55ivqyLcta6tbHa2" 
+                            alt="Govt Ayurveda College Kannur" 
+                            class="project-graphic w-full h-full object-cover transition-transform duration-700 ease-out"
+                            onerror="this.onerror=null; this.src='https://via.placeholder.com/800x500?text=Branding+Mockup';"
+                        />
+                        <div class="absolute top-4 right-4 bg-emerald-500/10 backdrop-blur-md text-emerald-600 text-[9px] font-bold tracking-[0.15em] uppercase px-3 py-1 rounded-full border border-emerald-500/20">
+                            Branding
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <span class="text-[9px] font-mono tracking-widest text-zinc-400 uppercase">Govt Ayurveda College Kannur</span>
+                        <h3 class="font-bold text-lg mt-1 text-zinc-900 flex items-center justify-between">
+                            Branding for Dance Club
+                            <i data-lucide="arrow-right" class="w-4 h-4 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all"></i>
+                        </h3>
+                        <p class="text-zinc-500 text-xs mt-2 leading-relaxed line-clamp-2">
+                            A dynamic, rhythmic visual identity crafted specifically for the college's traditional and contemporary dance ecosystem.
+                        </p>
+                    </div>
+                </a>
+
+                <!-- Project 2: Mercedes-Benz India -->
+                <a href="https://www.behance.net/gallery/250930907/Social-media-creative-for-Mercedes-Benz-India" target="_blank" class="project-card group block border border-zinc-100 rounded-2xl overflow-hidden bg-zinc-50/50 hover:bg-white hover:shadow-xl hover:border-transparent transition-all duration-300">
+                    <div class="aspect-[16/10] bg-zinc-100 overflow-hidden relative">
+                        <img 
+                            src="https://lh3.googleusercontent.com/d/1TEiKNn-NkRBtmot1P9AigzA2kCY7XBmp" 
+                            alt="Mercedes-Benz India" 
+                            class="project-graphic w-full h-full object-cover transition-transform duration-700 ease-out"
+                            onerror="this.onerror=null; this.src='https://via.placeholder.com/800x500?text=Check+Drive+Permissions';"
+                        />
+                        <div class="absolute top-4 right-4 bg-white/10 backdrop-blur-md text-slate-200 text-[9px] font-bold tracking-[0.15em] uppercase px-3 py-1 rounded-full border border-white/10">
+                            Social Campaign
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <span class="text-[9px] font-mono tracking-widest text-zinc-400 uppercase">Mercedes-Benz India</span>
+                        <h3 class="font-bold text-lg mt-1 text-zinc-900 flex items-center justify-between">
+                            Mercedes-Benz Social Campaign
+                            <i data-lucide="arrow-right" class="w-4 h-4 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all"></i>
+                        </h3>
+                        <p class="text-zinc-500 text-xs mt-2 leading-relaxed line-clamp-2">
+                            Ultra-premium digital artwork creatives evoking the sleek power, luxurious design language, and precision heritage of the brand.
+                        </p>
+                    </div>
+                </a>
+
+                <!-- Project 3: Eduport Pitch Deck Presentation -->
+                <a href="https://www.behance.net/gallery/247160711/Pitch-Deck-Presentation" target="_blank" class="project-card group block border border-zinc-100 rounded-2xl overflow-hidden bg-zinc-50/50 hover:bg-white hover:shadow-xl hover:border-transparent transition-all duration-300">
+                    <div class="aspect-[16/10] bg-zinc-100 overflow-hidden relative">
+                        <img 
+                            src="https://lh3.googleusercontent.com/d/1ELUBsI8BwCZhARnKNzk984bEDt3lo705" 
+                            alt="Eduport Pitch Deck Presentation" 
+                            class="project-graphic w-full h-full object-cover transition-transform duration-700 ease-out"
+                            onerror="this.onerror=null; this.src='https://via.placeholder.com/800x500?text=Pitch+Deck+Presentation';"
+                        />
+                        <div class="absolute top-4 right-4 bg-blue-500/10 backdrop-blur-md text-blue-400 text-[9px] font-bold tracking-[0.15em] uppercase px-3 py-1 rounded-full border border-blue-500/20">
+                            Pitch Deck
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <span class="text-[9px] font-mono tracking-widest text-zinc-400 uppercase">Eduport Pvt Ltd</span>
+                        <h3 class="font-bold text-lg mt-1 text-zinc-900 flex items-center justify-between">
+                            Eduport Pitch Deck Presentation
+                            <i data-lucide="arrow-right" class="w-4 h-4 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all"></i>
+                        </h3>
+                        <p class="text-zinc-500 text-xs mt-2 leading-relaxed line-clamp-2">
+                            A highly polished commercial pitch deck engineered to attract investments, visualizing strategic metrics, business milestones, and core educational systems.
+                        </p>
+                    </div>
+                </a>
+
+                <!-- Project 4: Phobia Billboard -->
+                <a href="https://www.behance.net/gallery/248457642/A-Minimal-Billboard-Campaign-for-Phobias" target="_blank" class="project-card group block border border-zinc-100 rounded-2xl overflow-hidden bg-zinc-50/50 hover:bg-white hover:shadow-xl hover:border-transparent transition-all duration-300">
+                    <div class="aspect-[16/10] bg-zinc-100 overflow-hidden relative">
+                        <img 
+                            src="https://lh3.googleusercontent.com/d/1EJbUFWUNTB2Gv8ImjQw_MnbampEko-rw" 
+                            alt="Minimalist Billboard Series: Phobias" 
+                            class="project-graphic w-full h-full object-cover transition-transform duration-700 ease-out"
+                            onerror="this.onerror=null; this.src='https://via.placeholder.com/800x500?text=Check+Drive+Permissions';"
+                        />
+                        <div class="absolute top-4 right-4 bg-stone-500/10 backdrop-blur-md text-stone-300 text-[9px] font-bold tracking-[0.15em] uppercase px-3 py-1 rounded-full border border-stone-500/20">
+                            Billboard Concept
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <span class="text-[9px] font-mono tracking-widest text-zinc-400 uppercase">Minimal Design Series</span>
+                        <h3 class="font-bold text-lg mt-1 text-zinc-900 flex items-center justify-between">
+                            Minimalist Billboard Series: Phobias
+                            <i data-lucide="arrow-right" class="w-4 h-4 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all"></i>
+                        </h3>
+                        <p class="text-zinc-500 text-xs mt-2 leading-relaxed line-clamp-2">
+                            A highly conceptual outdoor advertisement study exploring visual anxiety, spatial tension, and psychological design layouts.
+                        </p>
+                    </div>
+                </a>
+
+            </div>
+
+            <!-- Large View Portfolio Button Centered Under Grid -->
+            <div class="mt-16 flex justify-center">
+                <a 
+                    href="https://www.behance.net/rivinrishal_40" 
+                    target="_blank"
+                    class="inline-flex items-center justify-center gap-3 text-xs font-bold tracking-[0.2em] uppercase bg-blue-600 text-white px-16 py-5 rounded-full hover:bg-blue-700 hover:-translate-y-1 transition-all duration-300 shadow-lg shadow-blue-600/15 hover:shadow-xl hover:shadow-blue-600/30 whitespace-nowrap group w-full sm:w-auto text-center"
+                >
+                    See More Projects <i data-lucide="arrow-up-right" class="w-4 h-4 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1"></i>
+                </a>
+            </div>
+        </section>
+
         <!-- Experience Section -->
         <section class="fade-in mb-28 md:mb-40">
             <h2 class="text-[10px] font-bold tracking-[0.3em] uppercase text-zinc-400 mb-12">Experience</h2>
             <div class="divide-y divide-zinc-100 border-t border-zinc-100">
+                
                 <!-- Job 1 -->
-                <div class="py-10 grid md:grid-cols-4 gap-6 items-start group">
-                    <span class="text-xs font-mono text-zinc-400">2025 — Present</span>
-                    <div class="md:col-span-2">
-                        <h3 class="font-bold text-xl mb-2 group-hover:translate-x-1 transition-transform duration-300">Graphic Design Lead</h3>
-                        <p class="text-zinc-500 text-sm leading-relaxed mb-4">Leading visual strategy and comprehensive design systems to ensure brand consistency and drive customer acquisition.</p>
-                        <ul class="text-[11px] text-zinc-400 space-y-1 font-medium">
-                            <li>• Reduced external design costs by 100% via in-house conference execution.</li>
-                            <li>• Implementing AI-integrated workflows to accelerate production lead times.</li>
-                        </ul>
+                <div class="py-12 grid md:grid-cols-12 gap-6 md:gap-8 items-start group">
+                    <div class="md:col-span-4 flex flex-col gap-1.5">
+                        <span class="text-xs font-mono text-zinc-400">2025 — Present</span>
+                        <span class="font-bold text-sm tracking-wide text-zinc-900 group-hover:text-blue-600 transition-colors duration-300">
+                            Eduport Pvt Ltd
+                        </span>
                     </div>
-                    <span class="md:text-right text-[11px] font-bold uppercase tracking-widest text-zinc-300 group-hover:text-black transition-colors">
-                        Eduport Pvt Ltd
-                    </span>
-                </div>
-                <!-- Job 2 -->
-                <div class="py-10 grid md:grid-cols-4 gap-6 items-start group">
-                    <span class="text-xs font-mono text-zinc-400">2024 — 2025</span>
-                    <div class="md:col-span-2">
-                        <h3 class="font-bold text-xl mb-2 group-hover:translate-x-1 transition-transform duration-300">Senior Visual Designer</h3>
-                        <p class="text-zinc-500 text-sm leading-relaxed mb-4">Optimized design workflows for high-impact marketing assets and campaign creatives.</p>
-                        <ul class="text-[11px] text-zinc-400 space-y-1 font-medium">
-                            <li>• Improved conversion rates by 15–40% across key digital campaigns.</li>
-                            <li>• Upskilled junior teams through modern design and AI tool workshops.</li>
-                        </ul>
+                    <div class="md:col-span-8">
+                        <h3 class="font-bold text-xl text-zinc-900 mb-3">Graphic Design Lead</h3>
+                        <p class="text-zinc-500 text-sm leading-relaxed mb-6">
+                            Leading visual strategy and comprehensive design systems to ensure brand consistency and drive customer acquisition.
+                        </p>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 border-l border-zinc-100 pl-4">
+                            <div>
+                                <span class="block text-[9px] font-bold uppercase tracking-widest text-zinc-400">Milestone</span>
+                                <p class="text-xs text-zinc-600 mt-1">Reduced external design costs by 100% via in-house conference execution.</p>
+                            </div>
+                            <div>
+                                <span class="block text-[9px] font-bold uppercase tracking-widest text-zinc-400">Innovation</span>
+                                <p class="text-xs text-zinc-600 mt-1">Implementing AI-integrated workflows to accelerate production lead times.</p>
+                            </div>
+                        </div>
                     </div>
-                    <span class="md:text-right text-[11px] font-bold uppercase tracking-widest text-zinc-300 group-hover:text-black transition-colors">
-                        Eduport Pvt Ltd
-                    </span>
                 </div>
-                <!-- Job 3 -->
-                <div class="py-10 grid md:grid-cols-4 gap-6 items-start group">
-                    <span class="text-xs font-mono text-zinc-400">2022 — 2023</span>
-                    <div class="md:col-span-2">
-                        <h3 class="font-bold text-xl mb-2 group-hover:translate-x-1 transition-transform duration-300">Senior Visual Designer</h3>
-                        <p class="text-zinc-500 text-sm leading-relaxed mb-4">Managed branding and social media visuals, translating stakeholder requirements into cohesive designs.</p>
-                        <ul class="text-[11px] text-zinc-400 space-y-1 font-medium">
-                            <li>• Lowered operational costs by 40% through streamlined internal management.</li>
-                        </ul>
-                    </div>
-                    <span class="md:text-right text-[11px] font-bold uppercase tracking-widest text-zinc-300 group-hover:text-black transition-colors">
-                        Angadi Company
-                    </span>
-                </div>
-                <!-- Job 4 -->
-                <div class="py-10 grid md:grid-cols-4 gap-6 items-start group">
-                    <span class="text-xs font-mono text-zinc-400">2020 — 2022</span>
-                    <div class="md:col-span-2">
-                        <h3 class="font-bold text-xl mb-2 group-hover:translate-x-1 transition-transform duration-300">Junior Graphic Designer</h3>
-                        <p class="text-zinc-500 text-sm leading-relaxed mb-4">Foundation-level execution for large-scale marketing and educational campaigns.</p>
-                        <ul class="text-[11px] text-zinc-400 space-y-1 font-medium">
-                            <li>• Led a 7-member team for in-house publications, cutting costs by 60%.</li>
-                        </ul>
-                    </div>
-                    <span class="md:text-right text-[11px] font-bold uppercase tracking-widest text-zinc-300 group-hover:text-black transition-colors">
-                        DOPA Academy LLP
-                    </span>
-                </div>
-            </div>
-        </section>
 
-        <!-- Works Section -->
-        <section class="fade-in mb-28 md:mb-40">
-            <h2 class="text-[10px] font-bold tracking-[0.3em] uppercase text-zinc-400 mb-10">Works</h2>
-            <a 
-                href="https://www.behance.net/rivinrishal_40"
-                target="_blank"
-                class="flex items-center justify-between py-16 border-y border-zinc-100 px-8 group hover:bg-black transition-all duration-500 rounded-xl"
-            >
-                <div>
-                    <h3 class="text-4xl md:text-7xl font-bold tracking-tighter group-hover:text-white transition-all duration-500 group-hover:translate-x-4">
-                        View Portfolio
-                    </h3>
+                <!-- Job 2 -->
+                <div class="py-12 grid md:grid-cols-12 gap-6 md:gap-8 items-start group">
+                    <div class="md:col-span-4 flex flex-col gap-1.5">
+                        <span class="text-xs font-mono text-zinc-400">2024 — 2025</span>
+                        <span class="font-bold text-sm tracking-wide text-zinc-900 group-hover:text-blue-600 transition-colors duration-300">
+                            Eduport Pvt Ltd
+                        </span>
+                    </div>
+                    <div class="md:col-span-8">
+                        <h3 class="font-bold text-xl text-zinc-900 mb-3">Senior Visual Designer</h3>
+                        <p class="text-zinc-500 text-sm leading-relaxed mb-6">
+                            Optimized design workflows for high-impact marketing assets and campaign creatives.
+                        </p>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 border-l border-zinc-100 pl-4">
+                            <div>
+                                <span class="block text-[9px] font-bold uppercase tracking-widest text-zinc-400">Campaign Impact</span>
+                                <p class="text-xs text-zinc-600 mt-1">Improved conversion rates by 15–40% across key digital campaigns.</p>
+                            </div>
+                            <div>
+                                <span class="block text-[9px] font-bold uppercase tracking-widest text-zinc-400">Mentorship</span>
+                                <p class="text-xs text-zinc-600 mt-1">Upskilled junior teams through modern design and AI tool workshops.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="flex items-center justify-center transition-all duration-500 group-hover:rotate-45 group-hover:-translate-x-4">
-                    <i data-lucide="arrow-up-right" class="w-10 h-10 md:w-12 md:h-12 text-zinc-200 group-hover:text-white transition-colors"></i>
+
+                <!-- Job 3 -->
+                <div class="py-12 grid md:grid-cols-12 gap-6 md:gap-8 items-start group">
+                    <div class="md:col-span-4 flex flex-col gap-1.5">
+                        <span class="text-xs font-mono text-zinc-400">2022 — 2023</span>
+                        <span class="font-bold text-sm tracking-wide text-zinc-900 group-hover:text-blue-600 transition-colors duration-300">
+                            Angadi Company
+                        </span>
+                    </div>
+                    <div class="md:col-span-8">
+                        <h3 class="font-bold text-xl text-zinc-900 mb-3">Senior Visual Designer</h3>
+                        <p class="text-zinc-500 text-sm leading-relaxed mb-6">
+                            Managed branding and social media visuals, translating stakeholder requirements into cohesive designs.
+                        </p>
+                        <div class="grid grid-cols-1 gap-4 border-l border-zinc-100 pl-4">
+                            <div>
+                                <span class="block text-[9px] font-bold uppercase tracking-widest text-zinc-400">Efficiency</span>
+                                <p class="text-xs text-zinc-600 mt-1">Lowered operational costs by 40% through streamlined internal management.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </a>
+
+                <!-- Job 4 -->
+                <div class="py-12 grid md:grid-cols-12 gap-6 md:gap-8 items-start group">
+                    <div class="md:col-span-4 flex flex-col gap-1.5">
+                        <span class="text-xs font-mono text-zinc-400">2020 — 2022</span>
+                        <span class="font-bold text-sm tracking-wide text-zinc-900 group-hover:text-blue-600 transition-colors duration-300">
+                            DOPA Academy LLP
+                        </span>
+                    </div>
+                    <div class="md:col-span-8">
+                        <h3 class="font-bold text-xl text-zinc-900 mb-3">Junior Graphic Designer</h3>
+                        <p class="text-zinc-500 text-sm leading-relaxed mb-6">
+                            Foundation-level execution for large-scale marketing and educational campaigns.
+                        </p>
+                        <div class="grid grid-cols-1 gap-4 border-l border-zinc-100 pl-4">
+                            <div>
+                                <span class="block text-[9px] font-bold uppercase tracking-widest text-zinc-400">Leadership</span>
+                                <p class="text-xs text-zinc-600 mt-1">Led a 7-member team for in-house publications, cutting costs by 60%.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
         </section>
 
         <!-- Expertise Section -->
@@ -252,6 +415,7 @@
         </section>
     </main>
 
+    <!-- Footer -->
     <footer class="max-w-4xl mx-auto px-6 pb-24 text-[10px] font-bold tracking-[0.3em] uppercase text-zinc-300">
         © <span id="year"></span> Muhammed Rivin · Kerala, India
     </footer>
@@ -260,6 +424,7 @@
         lucide.createIcons();
         document.getElementById('year').textContent = new Date().getFullYear();
 
+        // Setup Intersection Observer for slick on-scroll fade animations
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
